@@ -52,8 +52,6 @@
 	}
 	
 	for (Message* m in ary) {
-		NSLog(@"%d %@", m.messageId, m.text);
-		
 		if (m.messageId > lastMessageId) {
 			[messages addObject:m];
 			

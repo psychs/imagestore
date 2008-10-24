@@ -2,7 +2,7 @@
 
 ImageStore is a library for iPhone to download images in background automatically. It also caches images.
 
-The sample project includes HttpClient, very fast UITableViewCell implementation. I would hope it will help you.
+The sample project includes HttpClient, rounded image rendering and very fast UITableViewCell implementation. I would hope it will help you.
 
 * How to use
 

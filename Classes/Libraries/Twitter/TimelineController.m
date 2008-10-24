@@ -48,11 +48,11 @@
 	
 	long lastMessageId = 0;
 	if ([messages count] > 0) {
-		lastMessageId = ((Message*)[messages objectAtIndex:0]).messageId;
+		lastMessageId = ((Message*)[messages lastObject]).messageId;
 	}
 	
-	for (int i=[ary count]-1; i>=0; --i) {
-		Message* m = [ary objectAtIndex:i];
+	for (Message* m in ary) {
+		NSLog(@"%d %@", m.messageId, m.text);
 		
 		if (m.messageId > lastMessageId) {
 			[messages addObject:m];

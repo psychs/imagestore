@@ -22,8 +22,8 @@
 
 - (void)dealloc
 {
-	[conn release];
-	[buf release];
+	[conn cancel];
+	[conn autorelease];
 	[super dealloc];
 }
 
@@ -35,41 +35,16 @@
 - (void)get
 {
 	[conn autorelease];
-	[buf autorelease];
 
 	NSString* url = @"http://twitter.com/statuses/public_timeline.json";
-	NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
-														cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-														timeoutInterval:60.0];
-	conn = [[NSURLConnection alloc] initWithRequest:req delegate:self];
-	buf = [NSMutableData new];
-}
-
-- (void)connection:(NSURLConnection *)aConn didReceiveResponse:(NSURLResponse *)response
-{
-	// should retain response
-}
-
-- (void)connection:(NSURLConnection *)aConn didReceiveData:(NSData *)data
-{
-	[buf appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)aConn didFailWithError:(NSError *)error
-{
-	[conn autorelease];
-	[buf autorelease];
-	conn = nil;
-	buf = nil;
 	
-	if ([delegate respondsToSelector:@selector(timelineDownloaderDidFail:error:)]) {
-		[delegate timelineDownloaderDidFail:self error:error];
-	}
+	conn = [[HttpClient alloc] initWithDelegate:self];
+	[conn get:url parameters:nil];
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)aConn
+- (void)httpClientSucceeded:(HttpClient*)sender response:(NSHTTPURLResponse*)response data:(NSData*)data
 {
-	NSString* s = [[[NSString alloc] initWithData:buf encoding:NSUTF8StringEncoding] autorelease];
+	NSString* s = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 	NSArray* ary = [s JSONValue];
 	NSMutableArray* messages = [NSMutableArray array];
 	
@@ -79,14 +54,22 @@
 			[messages addObject:m];
 		}
 	}
-
+	
 	[conn autorelease];
-	[buf autorelease];
 	conn = nil;
-	buf = nil;
 	
 	if ([delegate respondsToSelector:@selector(timelineDownloaderDidSucceed:messages:)]) {
 		[delegate timelineDownloaderDidSucceed:self messages:messages];
+	}
+}
+
+- (void)httpClientFailed:(HttpClient*)sender error:(NSError*)error
+{
+	[conn autorelease];
+	conn = nil;
+	
+	if ([delegate respondsToSelector:@selector(timelineDownloaderDidFail:error:)]) {
+		[delegate timelineDownloaderDidFail:self error:error];
 	}
 }
 

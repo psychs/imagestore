@@ -2,12 +2,12 @@
 // You can redistribute it and/or modify it under the new BSD license.
 
 #import <UIKit/UIKit.h>
+#import "HttpClient.h"
 
 @interface TimelineDownloader : NSObject
 {
 	id delegate;
-	NSURLConnection* conn;
-	NSMutableData* buf;
+	HttpClient* conn;
 }
 
 @property (nonatomic, readonly) BOOL isActive;

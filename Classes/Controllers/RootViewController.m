@@ -57,9 +57,14 @@
 	}
 }
 
+- (Message*)messageAtIndexPath:(NSIndexPath*)path
+{
+	return [conn.messages objectAtIndex:conn.messages.count - path.row - 1];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)path
 {
-	Message* m = [conn.messages objectAtIndex:path.row];
+	Message* m = [self messageAtIndexPath:path];
 	[m calculateGeometries];
 	return m.cellHeight + 2;
 }
@@ -72,7 +77,7 @@
 		cell.imageStore = imageStore;
     }
 	
-	Message* m = [conn.messages objectAtIndex:path.row];
+	Message* m = [self messageAtIndexPath:path];
 	cell.message = m;
 	[imageStore getImage:m.user.profileImageUrl];
     return cell;

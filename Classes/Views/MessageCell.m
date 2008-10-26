@@ -19,7 +19,6 @@
 
 - (void)dealloc
 {
-	[message release];
     [super dealloc];
 }
 

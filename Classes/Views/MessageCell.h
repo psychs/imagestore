@@ -9,7 +9,6 @@
 @interface MessageCell : UITableViewCell
 {
 	MessageContentView* view;
-	Message* message;
 }
 
 @property (nonatomic, retain) Message* message;

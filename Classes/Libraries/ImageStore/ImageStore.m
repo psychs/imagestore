@@ -57,7 +57,8 @@
 
 - (void)imageDownloaderDidSucceed:(ImageDownloader*)sender
 {
-	NSString* url = [[sender.url retain] autorelease];
+	[[sender retain] autorelease];
+	NSString* url = sender.url;
 	
 	UIImage* image = sender.image;
 	if (image) [images setObject:image forKey:url];
@@ -70,6 +71,7 @@
 
 - (void)imageDownloaderDidFail:(ImageDownloader*)sender error:(NSError*)error
 {
+	[[sender retain] autorelease];
 	[conns removeObjectForKey:sender.url];
 }
 

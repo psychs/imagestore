@@ -86,23 +86,6 @@
 		CGContextRestoreGState(c);
 		CGContextClip(c);
 		[icon drawInRect:iconRect];
-		
-		CGContextSetLineWidth(c, 1.0);
-		CGContextSaveGState(c);
-		CGContextBeginPath(c);
-		CGContextTranslateCTM(c, CGRectGetMinX(iconRect), CGRectGetMinY(iconRect));
-		CGContextScaleCTM(c, ovalWidth, ovalHeight);
-		w = CGRectGetWidth(rect) / ovalWidth;
-		h = CGRectGetHeight(rect) / ovalHeight;
-		CGContextMoveToPoint(c, w, h/2);
-		CGContextAddArcToPoint(c, w, h, w/2, h, 0.5);
-		CGContextAddArcToPoint(c, 0, h, 0, h/2, 0.5);
-		CGContextAddArcToPoint(c, 0, 0, w/2, 0, 0.5);
-		CGContextAddArcToPoint(c, w, 0, w, h/2, 0.5);
-		CGContextClosePath(c);
-		CGContextRestoreGState(c);
-		CGContextSetRGBStrokeColor(c, 0, 0, 0, 0.2);
-		CGContextDrawPath(c, kCGPathStroke);
 	}
 }
 

@@ -11,7 +11,7 @@
 	MessageContentView* view;
 }
 
-@property (nonatomic, retain) Message* message;
+@property (nonatomic, assign) Message* message;
 @property (nonatomic, assign) ImageStore* imageStore;
 
 @end

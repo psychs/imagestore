@@ -16,3 +16,8 @@
 - (UIImage*)getImage:(NSString*)url;
 
 @end
+
+
+@interface NSObject (ImageStoreDelegate)
+- (void)imageStoreDidGetNewImage:(ImageStore*)sender url:(NSString*)url;
+@end

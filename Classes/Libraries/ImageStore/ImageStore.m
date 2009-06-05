@@ -4,10 +4,6 @@
 #import "ImageStore.h"
 #import "ImageDownloader.h"
 
-@interface NSObject (ImageStoreDelegate)
-- (void)imageStoreDidGetNewImage:(ImageStore*)sender url:(NSString*)url;
-@end
-
 @interface ImageStore (Private)
 - (void)sendRequestForImage:(NSString*)url;
 @end

@@ -40,7 +40,7 @@
 	[conn autorelease];
 	conn = nil;
 	
-	long lastMessageId = 0;
+	long long lastMessageId = 0;
 	if ([messages count] > 0) {
 		lastMessageId = ((Message*)[messages lastObject]).messageId;
 	}

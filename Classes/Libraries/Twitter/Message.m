@@ -15,7 +15,7 @@
 - (Message*)initWithDictionary:(NSDictionary*)dic
 {
 	if (self = [super init]) {
-		messageId = [[dic objectForKey:@"id"] intValue];
+		messageId = [[dic objectForKey:@"id"] longLongValue];
 		text = [[dic objectForKey:@"text"] retain];
 		
 		NSDictionary* userDic = [dic objectForKey:@"user"];

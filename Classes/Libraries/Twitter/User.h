@@ -5,13 +5,13 @@
 
 @interface User : NSObject
 {
-	long userId;
+	long long userId;
 	NSString* screenName;
 	NSString* name;
 	NSString* profileImageUrl;
 }
 
-@property (nonatomic, readonly) long userId;
+@property (nonatomic, readonly) long long userId;
 @property (nonatomic, readonly) NSString* screenName;
 @property (nonatomic, readonly) NSString* name;
 @property (nonatomic, readonly) NSString* profileImageUrl;

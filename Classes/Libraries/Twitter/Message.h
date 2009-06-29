@@ -21,7 +21,7 @@
 
 @interface Message : NSObject
 {
-	long messageId;
+	long long messageId;
 	NSString* text;
 	User* user;
 	
@@ -30,7 +30,7 @@
 	CGRect textRect;
 }
 
-@property (nonatomic, readonly) long messageId;
+@property (nonatomic, readonly) long long messageId;
 @property (nonatomic, readonly) NSString* text;
 @property (nonatomic, readonly) User* user;
 @property (nonatomic, readonly) float cellHeight;

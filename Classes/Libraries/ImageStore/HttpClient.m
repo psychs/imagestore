@@ -6,12 +6,6 @@
 
 #define HTTP_CLIENT_TIMEOUT 180.0
 
-@interface NSObject (HttpClientDelegate)
-- (void)httpClientSucceeded:(HttpClient*)sender response:(NSHTTPURLResponse*)response data:(NSData*)data;
-- (BOOL)httpClientShouldRedirect:(HttpClient*)sender request:(NSURLRequest*)request response:(NSHTTPURLResponse*)response;
-- (void)httpClientFailed:(HttpClient*)sender error:(NSError*)error;
-@end
-
 @implementation HttpClient
 
 @synthesize delegate;

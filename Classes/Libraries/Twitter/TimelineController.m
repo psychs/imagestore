@@ -3,12 +3,6 @@
 
 #import "TimelineController.h"
 #import "JSON.h"
-#import "Message.h"
-
-@interface NSObject (TimelineControllerDelegate)
-- (void)timelineControllerDidReceiveNewMessage:(TimelineController*)sender message:(Message*)message;
-- (void)timelineControllerDidUpdate:(TimelineController*)sender;
-@end
 
 @implementation TimelineController
 

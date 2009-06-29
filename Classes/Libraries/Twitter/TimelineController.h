@@ -3,6 +3,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TimelineDownloader.h"
+#import "Message.h"
 
 @interface TimelineController : NSObject
 {
@@ -16,4 +17,10 @@
 
 - (void)update;
 
+@end
+
+
+@interface NSObject (TimelineControllerDelegate)
+- (void)timelineControllerDidReceiveNewMessage:(TimelineController*)sender message:(Message*)message;
+- (void)timelineControllerDidUpdate:(TimelineController*)sender;
 @end

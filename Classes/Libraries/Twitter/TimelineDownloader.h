@@ -16,3 +16,9 @@
 - (void)get;
 
 @end
+
+
+@interface NSObject (TimelineDownloaderDelegate)
+- (void)timelineDownloaderDidSucceed:(TimelineDownloader*)sender messages:(NSArray*)messages;
+- (void)timelineDownloaderDidFail:(TimelineDownloader*)sender error:(NSError*)error;
+@end

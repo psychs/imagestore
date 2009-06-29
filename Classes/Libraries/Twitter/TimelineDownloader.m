@@ -5,11 +5,6 @@
 #import "JSON.h"
 #import "Message.h"
 
-@interface NSObject (TimelineDownloaderDelegate)
-- (void)timelineDownloaderDidSucceed:(TimelineDownloader*)sender messages:(NSArray*)messages;
-- (void)timelineDownloaderDidFail:(TimelineDownloader*)sender error:(NSError*)error;
-@end
-
 @implementation TimelineDownloader
 
 - (id)initWithDelegate:(id)aDelegate

@@ -3,11 +3,6 @@
 
 #import "ImageDownloader.h"
 
-@interface NSObject (ImageDownloaderDelegate)
-- (void)imageDownloaderDidSucceed:(ImageDownloader*)sender;
-- (void)imageDownloaderDidFail:(ImageDownloader*)sender error:(NSError*)error;
-@end
-
 @implementation ImageDownloader
 
 @synthesize image;

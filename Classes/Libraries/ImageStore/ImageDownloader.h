@@ -18,3 +18,9 @@
 + (ImageDownloader*)imageDownloaderWithDelegate:(id)aDelegate url:(NSString*)url;
 
 @end
+
+
+@interface NSObject (ImageDownloaderDelegate)
+- (void)imageDownloaderDidSucceed:(ImageDownloader*)sender;
+- (void)imageDownloaderDidFail:(ImageDownloader*)sender error:(NSError*)error;
+@end

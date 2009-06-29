@@ -65,8 +65,8 @@
 	UIImage* icon = [imageStore getImage:message.user.profileImageUrl];
 	if (icon) {
 		CGRect iconRect = CGRectMake(CELL_LEFT_MARGIN, CELL_V_MARGIN, icon.size.width, icon.size.height);
-		float ovalWidth = 20;
-		float ovalHeight = 20;
+		float ovalWidth = 10;
+		float ovalHeight = 10;
 		float w, h;
 		
 		CGContextRef c = UIGraphicsGetCurrentContext();

@@ -143,15 +143,4 @@
 	}
 }
 
-- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)req redirectResponse:(NSURLResponse *)res
-{
-	if (res) {
-		if ([delegate respondsToSelector:@selector(httpClientShouldRedirect:request:response:)]) {
-			BOOL result = [delegate httpClientShouldRedirect:self request:req response:(NSHTTPURLResponse*)res];
-			if (!result) return nil;
-		}
-	}
-	return req;
-}
-
 @end

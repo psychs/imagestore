@@ -8,19 +8,19 @@
 @implementation TimelineController
 
 @synthesize delegate;
-@synthesize messages;
+@synthesize statuses;
 
 - (id)init
 {
 	if (self = [super init]) {
-		messages = [NSMutableArray new];
+		statuses = [NSMutableArray new];
 	}
 	return self;
 }
 
 - (void)dealloc
 {
-	[messages release];
+	[statuses release];
 	[conn release];
 	[super dealloc];
 }
@@ -35,23 +35,23 @@
 	}
 }
 
-- (void)timelineDownloaderDidSucceed:(TimelineDownloader*)sender messages:(NSArray*)ary
+- (void)timelineDownloaderDidSucceed:(TimelineDownloader*)sender statuses:(NSArray*)ary
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	[conn autorelease];
 	conn = nil;
 	
-	long long lastMessageId = 0;
-	if ([messages count] > 0) {
-		lastMessageId = ((Message*)[messages lastObject]).messageId;
+	long long lastStatusId = 0;
+	if (statuses.count > 0) {
+		lastStatusId = ((Status*)[statuses lastObject]).statusId;
 	}
 	
-	for (Message* m in ary) {
-		if (m.messageId > lastMessageId) {
-			[messages addObject:m];
+	for (Status* m in ary) {
+		if (m.statusId > lastStatusId) {
+			[statuses addObject:m];
 			
-			if ([delegate respondsToSelector:@selector(timelineControllerDidReceiveNewMessage:message:)]) {
-				[delegate timelineControllerDidReceiveNewMessage:self message:m];
+			if ([delegate respondsToSelector:@selector(timelineController:didReceiveStatus:)]) {
+				[delegate timelineController:self didReceiveStatus:m];
 			}
 		}
 	}

@@ -5,7 +5,8 @@
 #import "RootViewController.h"
 
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate>
+{
 	UIWindow* window;
 	UINavigationController* navigationController;
 	RootViewController* root;

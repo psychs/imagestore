@@ -1,22 +1,22 @@
 // Created by Satoshi Nakagawa.
 // You can redistribute it and/or modify it under the new BSD license.
 
-#import "Message.h"
+#import "Status.h"
 
 
-@implementation Message
+@implementation Status
 
-@synthesize messageId;
+@synthesize statusId;
 @synthesize text;
 @synthesize user;
 @synthesize cellHeight;
 @synthesize nameRect;
 @synthesize textRect;
 
-- (Message*)initWithDictionary:(NSDictionary*)dic
+- (Status*)initWithDictionary:(NSDictionary*)dic
 {
 	if (self = [super init]) {
-		messageId = [[dic objectForKey:@"id"] longLongValue];
+		statusId = [[dic objectForKey:@"id"] longLongValue];
 		text = [[dic objectForKey:@"text"] retain];
 		
 		NSDictionary* userDic = [dic objectForKey:@"user"];
@@ -34,9 +34,9 @@
 	[super dealloc];
 }
 
-+ (Message*)messageWithDictionary:(NSDictionary*)dic
++ (Status*)statusWithDictionary:(NSDictionary*)dic
 {
-	return [[[Message alloc] initWithDictionary:dic] autorelease];
+	return [[[Status alloc] initWithDictionary:dic] autorelease];
 }
 
 - (void)calculateGeometries

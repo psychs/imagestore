@@ -3,18 +3,18 @@
 
 #import <UIKit/UIKit.h>
 #import "TimelineDownloader.h"
-#import "Message.h"
+#import "Status.h"
 
 
 @interface TimelineController : NSObject
 {
 	id delegate;
-	NSMutableArray* messages;
+	NSMutableArray* statuses;
 	TimelineDownloader* conn;
 }
 
 @property (nonatomic, assign) IBOutlet id delegate;
-@property (nonatomic, readonly) NSArray* messages;
+@property (nonatomic, readonly) NSArray* statuses;
 
 - (void)update;
 
@@ -22,6 +22,6 @@
 
 
 @interface NSObject (TimelineControllerDelegate)
-- (void)timelineControllerDidReceiveNewMessage:(TimelineController*)sender message:(Message*)message;
+- (void)timelineController:(TimelineController*)sender didReceiveStatus:(Status*)status;
 - (void)timelineControllerDidUpdate:(TimelineController*)sender;
 @end

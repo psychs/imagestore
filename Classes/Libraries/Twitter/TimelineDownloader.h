@@ -20,6 +20,6 @@
 
 
 @interface NSObject (TimelineDownloaderDelegate)
-- (void)timelineDownloaderDidSucceed:(TimelineDownloader*)sender messages:(NSArray*)messages;
+- (void)timelineDownloaderDidSucceed:(TimelineDownloader*)sender statuses:(NSArray*)statuses;
 - (void)timelineDownloaderDidFail:(TimelineDownloader*)sender error:(NSError*)error;
 @end

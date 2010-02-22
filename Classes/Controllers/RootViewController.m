@@ -3,10 +3,10 @@
 
 #import "RootViewController.h"
 #import "AppDelegate.h"
-#import "Message.h"
-#import "MessageCell.h"
+#import "Status.h"
+#import "StatusCell.h"
 
-#define CELL_ID @"TweetCell"
+#define CELL_ID		@"StatusCell"
 
 
 @implementation RootViewController
@@ -51,37 +51,37 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	if (conn) {
-		return conn.messages.count;
+		return conn.statuses.count;
 	}
 	else {
 		return 0;
 	}
 }
 
-- (Message*)messageAtIndexPath:(NSIndexPath*)path
+- (Status*)statusAtIndexPath:(NSIndexPath*)path
 {
-	return [conn.messages objectAtIndex:conn.messages.count - path.row - 1];
+	return [conn.statuses objectAtIndex:conn.statuses.count - path.row - 1];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)path
 {
-	Message* m = [self messageAtIndexPath:path];
+	Status* m = [self statusAtIndexPath:path];
 	[m calculateGeometries];
 	return m.cellHeight + 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)path
 {
-	MessageCell* cell = (MessageCell*)[tableView dequeueReusableCellWithIdentifier:CELL_ID];
-	if (!cell) {
-		cell = [[[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_ID] autorelease];
-		cell.imageStore = imageStore;
+	StatusCell* c = (StatusCell*)[tableView dequeueReusableCellWithIdentifier:CELL_ID];
+	if (!c) {
+		c = [[[StatusCell alloc] initWithReuseIdentifier:CELL_ID] autorelease];
+		c.imageStore = imageStore;
 	}
 	
-	Message* m = [self messageAtIndexPath:path];
-	cell.message = m;
+	Status* m = [self statusAtIndexPath:path];
+	c.status = m;
 	[imageStore getImage:m.user.profileImageUrl];
-	return cell;
+	return c;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path

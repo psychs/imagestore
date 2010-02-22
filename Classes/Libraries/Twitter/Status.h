@@ -20,9 +20,9 @@
 #define CELL_TEXT_FONT_SIZE		14
 
 
-@interface Message : NSObject
+@interface Status : NSObject
 {
-	long long messageId;
+	long long statusId;
 	NSString* text;
 	User* user;
 	
@@ -31,14 +31,14 @@
 	CGRect textRect;
 }
 
-@property (nonatomic, readonly) long long messageId;
+@property (nonatomic, readonly) long long statusId;
 @property (nonatomic, readonly) NSString* text;
 @property (nonatomic, readonly) User* user;
 @property (nonatomic, readonly) float cellHeight;
 @property (nonatomic, readonly) CGRect nameRect;
 @property (nonatomic, readonly) CGRect textRect;
 
-+ (Message*)messageWithDictionary:(NSDictionary*)dic;
++ (Status*)statusWithDictionary:(NSDictionary*)dic;
 - (void)calculateGeometries;
 
 @end

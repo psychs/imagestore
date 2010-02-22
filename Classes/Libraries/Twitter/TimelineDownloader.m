@@ -3,7 +3,7 @@
 
 #import "TimelineDownloader.h"
 #import "JSON.h"
-#import "Message.h"
+#import "Status.h"
 
 
 @implementation TimelineDownloader
@@ -42,20 +42,20 @@
 {
 	NSString* s = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 	NSArray* ary = [s JSONValue];
-	NSMutableArray* messages = [NSMutableArray array];
+	NSMutableArray* statuses = [NSMutableArray array];
 	
 	if (ary) {
 		for (int i=[ary count]-1; i>=0; i--) {
-			Message* m = [Message messageWithDictionary:[ary objectAtIndex:i]];
-			[messages addObject:m];
+			Status* m = [Status statusWithDictionary:[ary objectAtIndex:i]];
+			[statuses addObject:m];
 		}
 	}
 	
 	[conn autorelease];
 	conn = nil;
 	
-	if ([delegate respondsToSelector:@selector(timelineDownloaderDidSucceed:messages:)]) {
-		[delegate timelineDownloaderDidSucceed:self messages:messages];
+	if ([delegate respondsToSelector:@selector(timelineDownloaderDidSucceed:statuses:)]) {
+		[delegate timelineDownloaderDidSucceed:self statuses:statuses];
 	}
 }
 

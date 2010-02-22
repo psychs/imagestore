@@ -5,6 +5,7 @@
 #import "MessageCell.h"
 #import "Message.h"
 
+
 @implementation MessageContentView
 
 @synthesize message;
@@ -12,16 +13,16 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    if (self = [super initWithFrame:frame]) {
+	if (self = [super initWithFrame:frame]) {
 		self.backgroundColor = [UIColor whiteColor];
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void)dealloc
 {
 	[message release];
-    [super dealloc];
+	[super dealloc];
 }
 
 - (void)setMessage:(Message*)value

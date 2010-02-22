@@ -4,6 +4,7 @@
 #import <Foundation/Foundation.h>
 #import "HttpClient.h"
 
+
 @interface ImageDownloader : NSObject
 {
 	id delegate;

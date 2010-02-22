@@ -5,6 +5,7 @@
 #import "TimelineDownloader.h"
 #import "Message.h"
 
+
 @interface TimelineController : NSObject
 {
 	id delegate;

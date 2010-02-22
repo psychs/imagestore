@@ -3,6 +3,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface User : NSObject
 {
 	long long userId;

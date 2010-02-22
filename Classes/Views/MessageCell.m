@@ -4,6 +4,7 @@
 #import "MessageCell.h"
 #import "MessageContentView.h"
 
+
 @implementation MessageCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -19,7 +20,7 @@
 
 - (void)dealloc
 {
-    [super dealloc];
+	[super dealloc];
 }
 
 - (void)setMessage:(Message*)value

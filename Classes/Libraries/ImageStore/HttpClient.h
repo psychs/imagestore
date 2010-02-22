@@ -3,6 +3,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface HttpClient : NSObject
 {
 	id delegate;

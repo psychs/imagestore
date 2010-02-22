@@ -8,6 +8,7 @@
 - (void)sendRequestForImage:(NSString*)url;
 @end
 
+
 @implementation ImageStore
 
 @synthesize delegate;

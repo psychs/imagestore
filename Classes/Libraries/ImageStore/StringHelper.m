@@ -3,6 +3,7 @@
 
 #import "StringHelper.h"
 
+
 @implementation NSString (StringHelper)
 
 - (NSString*)encodeAsURIComponent

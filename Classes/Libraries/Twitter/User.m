@@ -3,6 +3,7 @@
 
 #import "User.h"
 
+
 @implementation User
 
 @synthesize userId;

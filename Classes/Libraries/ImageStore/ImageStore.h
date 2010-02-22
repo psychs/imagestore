@@ -3,6 +3,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface ImageStore : NSObject
 {
 	id delegate;

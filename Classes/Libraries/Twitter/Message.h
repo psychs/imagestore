@@ -19,6 +19,7 @@
 #define CELL_NAME_FONT_SIZE		14
 #define CELL_TEXT_FONT_SIZE		14
 
+
 @interface Message : NSObject
 {
 	long long messageId;

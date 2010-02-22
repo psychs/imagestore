@@ -3,6 +3,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface NSString (StringHelper)
 
 - (NSString*)encodeAsURIComponent;

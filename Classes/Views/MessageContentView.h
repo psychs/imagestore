@@ -5,6 +5,7 @@
 #import "Message.h"
 #import "ImageStore.h"
 
+
 @interface MessageContentView : UIView
 {
 	Message* message;

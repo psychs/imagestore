@@ -6,6 +6,7 @@
 #import "MessageContentView.h"
 #import "ImageStore.h"
 
+
 @interface MessageCell : UITableViewCell
 {
 	MessageContentView* view;

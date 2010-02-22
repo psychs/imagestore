@@ -4,10 +4,10 @@
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
 
+
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
-    
-    UIWindow* window;
-    UINavigationController* navigationController;
+	UIWindow* window;
+	UINavigationController* navigationController;
 	RootViewController* root;
 }
 

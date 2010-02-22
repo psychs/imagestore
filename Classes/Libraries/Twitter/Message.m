@@ -3,6 +3,7 @@
 
 #import "Message.h"
 
+
 @implementation Message
 
 @synthesize messageId;

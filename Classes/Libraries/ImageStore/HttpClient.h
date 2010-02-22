@@ -7,7 +7,7 @@
 {
 	id delegate;
 	NSString* userAgent;
-	
+
 	NSURLConnection* conn;
 	NSHTTPURLResponse* response;
 	NSMutableData* buf;

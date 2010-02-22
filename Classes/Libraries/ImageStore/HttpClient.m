@@ -97,8 +97,8 @@
 	
 	[req setHTTPMethod:@"POST"];
 	if (userAgent) [req setValue:userAgent forHTTPHeaderField:@"User-Agent"];
-    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [req setValue:[NSString stringWithFormat:@"%d", body.length] forHTTPHeaderField:@"Content-Length"];
+	[req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	[req setValue:[NSString stringWithFormat:@"%d", body.length] forHTTPHeaderField:@"Content-Length"];
 	[req setHTTPBody:body];
 	[req setHTTPShouldHandleCookies:YES];
 	

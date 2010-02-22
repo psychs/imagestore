@@ -37,7 +37,7 @@
 	[url autorelease];
 	[conn autorelease];
 	url = [anUrl retain];
-
+	
 	conn = [[HttpClient alloc] initWithDelegate:self];
 	[conn get:url parameters:nil];
 }

@@ -53,7 +53,7 @@
 	
 	y += size.height;
 	y += CELL_NAME_BOTTOM_MARGIN;
-
+	
 	bounds = CGSizeMake(CELL_CONTENT_WIDTH, CELL_TEXT_MAX_HEIGHT);
 	
 	s = text;
@@ -62,7 +62,7 @@
 	
 	y += size.height;
 	y += CELL_V_MARGIN;
-
+	
 	if (y < CELL_MIN_HEIGHT) y = CELL_MIN_HEIGHT;
 	
 	cellHeight = y;

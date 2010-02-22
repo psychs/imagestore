@@ -30,7 +30,7 @@
 - (void)get
 {
 	[conn autorelease];
-
+	
 	NSString* url = @"http://twitter.com/statuses/public_timeline.json";
 	
 	conn = [[HttpClient alloc] initWithDelegate:self];

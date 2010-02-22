@@ -6,7 +6,7 @@
 #import "Message.h"
 #import "MessageCell.h"
 
-#define CELL_ID	@"TweetCell"
+#define CELL_ID @"TweetCell"
 
 @implementation RootViewController
 
@@ -14,7 +14,7 @@
 {
 	[conn release];
 	[imageStore release];
-    [super dealloc];
+	[super dealloc];
 }
 
 - (IBAction)refresh:(id)sender
@@ -44,7 +44,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+	return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -71,16 +71,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)path
 {
-    MessageCell* cell = (MessageCell*)[tableView dequeueReusableCellWithIdentifier:CELL_ID];
-    if (!cell) {
-        cell = [[[MessageCell alloc] initWithFrame:CGRectZero reuseIdentifier:CELL_ID] autorelease];
+	MessageCell* cell = (MessageCell*)[tableView dequeueReusableCellWithIdentifier:CELL_ID];
+	if (!cell) {
+		cell = [[[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_ID] autorelease];
 		cell.imageStore = imageStore;
-    }
+	}
 	
 	Message* m = [self messageAtIndexPath:path];
 	cell.message = m;
 	[imageStore getImage:m.user.profileImageUrl];
-    return cell;
+	return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)path

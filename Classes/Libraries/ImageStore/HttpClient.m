@@ -52,15 +52,13 @@
 - (NSString*)buildParameters:(NSDictionary*)params
 {
 	NSMutableString* s = [NSMutableString string];
-	if (params) {
-		NSEnumerator* e = [params keyEnumerator];
-		NSString* key;
-		while (key = (NSString*)[e nextObject]) {
-			NSString* value = [[params objectForKey:key] encodeAsURIComponent];
-			[s appendFormat:@"%@=%@&", key, value];
-		}
-		if (s.length > 0) [s deleteCharactersInRange:NSMakeRange(s.length-1, 1)];
+	
+	for (NSString* key in params) {
+		NSString* value = [[params objectForKey:key] encodeAsURIComponent];
+		[s appendFormat:@"%@=%@&", key, value];
 	}
+	
+	if (s.length > 0) [s deleteCharactersInRange:NSMakeRange(s.length-1, 1)];
 	return s;
 }
 

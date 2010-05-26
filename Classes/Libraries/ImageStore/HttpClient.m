@@ -4,7 +4,7 @@
 #import "HttpClient.h"
 #import "StringHelper.h"
 
-#define HTTP_CLIENT_TIMEOUT 180.0
+#define HTTP_CLIENT_TIMEOUT	180
 
 
 @implementation HttpClient
@@ -37,10 +37,8 @@
 
 - (void)cancel
 {
-	if (conn) {
-		[conn cancel];
-		[conn autorelease];
-	}
+	[conn cancel];
+	[conn autorelease];
 	[response autorelease];
 	[buf autorelease];
 	
@@ -112,17 +110,23 @@
 
 - (void)connection:(NSURLConnection*)sender didReceiveResponse:(NSHTTPURLResponse*)aResponse
 {
+	if (conn != sender) return;
+	
 	[response release];
 	response = [aResponse retain];
 }
 
 - (void)connection:(NSURLConnection*)sender didReceiveData:(NSData*)data
 {
+	if (conn != sender) return;
+	
 	[buf appendData:data];
 }
 
 - (void)connection:(NSURLConnection*)sender didFailWithError:(NSError*)error
 {
+	if (conn != sender) return;
+	
 	[self cancel];
 	
 	if ([delegate respondsToSelector:@selector(httpClientFailed:error:)]) {
@@ -132,6 +136,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection*)sender
 {
+	if (conn != sender) return;
+	
 	NSData* tmpBuf = buf;
 	NSHTTPURLResponse* tmpResponse = response;
 	

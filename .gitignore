@@ -20,3 +20,5 @@ mt.dep
 debuglog.*
 *.intermediate.manifest
 
+project.xcworkspace
+xcuserdata

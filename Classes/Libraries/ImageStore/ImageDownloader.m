@@ -57,6 +57,9 @@
     }
 	[image release];
 	image = [[UIImage alloc] initWithData:data];
+    if (!image) {
+        return [self httpClientFailed:sender error:nil];
+    }
 	
 	[conn autorelease];
 	conn = nil;

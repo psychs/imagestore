@@ -17,6 +17,8 @@
 - (UIImage*)getImage:(NSString*)url;
 - (void)cancelAllDownloads;
 - (void)cancelDownloadFromUrl:(NSString*)url;
+- (void)clearAllCaches;
+- (void)clearCacheForUrl:(NSString*)url;
 @end
 
 

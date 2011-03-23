@@ -86,4 +86,14 @@
     [conns removeObjectForKey:url];
 }
 
+- (void)clearAllCaches
+{
+    [images removeAllObjects];
+}
+
+- (void)clearCacheForUrl:(NSString *)url
+{
+    [images removeObjectForKey:url];
+}
+
 @end

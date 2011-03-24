@@ -28,7 +28,9 @@
 	if (!imageStore) {
 		imageStore = [ImageStore new];
 		imageStore.delegate = self;
-	}
+	} else {
+        [imageStore clearAllCaches];
+    }
 	
 	[conn update];
 }

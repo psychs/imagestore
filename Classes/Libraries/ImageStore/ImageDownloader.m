@@ -29,7 +29,10 @@
 {
 	[url release];
 	[image release];
+    
+    conn.delegate = nil;
 	[conn release];
+    
 	[super dealloc];
 }
 
@@ -75,6 +78,7 @@
 
 - (void)cancel
 {
+    conn.delegate = nil;
     [conn cancel];
     [conn release];
     conn = nil;

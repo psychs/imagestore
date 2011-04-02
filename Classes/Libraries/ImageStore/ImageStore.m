@@ -80,4 +80,10 @@
     [conns removeAllObjects];
 }
 
+- (void)cancelDownloadFromUrl:(NSString *)url
+{
+    [[conns objectForKey:url] cancel];
+    [conns removeObjectForKey:url];
+}
+
 @end

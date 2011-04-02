@@ -22,7 +22,7 @@
 - (void)cancel;
 - (void)get:(NSString*)url parameters:(NSDictionary*)params;
 - (void)post:(NSString*)url parameters:(NSDictionary*)params;
-
++ (BOOL)isSuccessfulResponse: (NSHTTPURLResponse *)res;
 @end
 
 

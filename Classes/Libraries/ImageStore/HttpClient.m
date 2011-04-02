@@ -148,4 +148,10 @@
 	}
 }
 
++ (BOOL)isSuccessfulResponse:(NSHTTPURLResponse *)res
+{
+    NSInteger status = [res statusCode];
+    return 200 <= status && status < 300;
+}
+
 @end

@@ -33,6 +33,14 @@
 	[conn update];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    if (imageStore) {
+        [imageStore clearAllCaches];
+    }
+    [super didReceiveMemoryWarning];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     if (imageStore) {

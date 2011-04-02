@@ -33,6 +33,14 @@
 	[conn update];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (imageStore) {
+        [imageStore cancelAllDownloads];
+    }
+    [super viewWillDisappear:animated];
+}
+
 - (void)timelineControllerDidUpdate:(TimelineController*)sender
 {
 	[self.tableView reloadData];

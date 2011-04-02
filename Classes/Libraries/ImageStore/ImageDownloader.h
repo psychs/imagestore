@@ -17,7 +17,7 @@
 @property (nonatomic, readonly) NSString* url;
 
 + (ImageDownloader*)imageDownloaderWithDelegate:(id)aDelegate url:(NSString*)url;
-
+- (void)cancel;
 @end
 
 

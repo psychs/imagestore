@@ -72,4 +72,12 @@
 	[conns removeObjectForKey:sender.url];
 }
 
+- (void)cancelAllDownloads
+{
+    for (ImageDownloader *url in conns) {
+        [[conns objectForKey:url] cancel];
+    }
+    [conns removeAllObjects];
+}
+
 @end

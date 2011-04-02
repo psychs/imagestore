@@ -73,4 +73,11 @@
 	}
 }
 
+- (void)cancel
+{
+    [conn cancel];
+    [conn release];
+    conn = nil;
+}
+
 @end

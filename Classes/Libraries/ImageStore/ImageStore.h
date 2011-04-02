@@ -15,7 +15,7 @@
 
 - (id)initWithDelegate:(id)aDelegate;
 - (UIImage*)getImage:(NSString*)url;
-
+- (void)cancelAllDownloads;
 @end
 
 

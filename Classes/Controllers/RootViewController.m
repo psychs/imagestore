@@ -11,10 +11,21 @@
 
 @implementation RootViewController
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (!self) {
+        return self;
+    }
+    fallbackImage = [[UIImage imageNamed:@"no_image"] retain];
+    return self;
+}
+
 - (void)dealloc
 {
 	[conn release];
 	[imageStore release];
+    [fallbackImage release];
 	[super dealloc];
 }
 
@@ -59,6 +70,11 @@
 - (void)imageStoreDidGetNewImage:(ImageStore*)sender url:(NSString*)url
 {
 	[self.tableView reloadData];
+}
+
+- (void)imageStoreDidFailNewImage:(ImageStore *)sender url:(NSString *)url fallbackImage:(UIImage **)anImage
+{
+    *anImage = fallbackImage;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

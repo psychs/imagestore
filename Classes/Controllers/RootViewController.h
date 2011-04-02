@@ -10,6 +10,7 @@
 {
 	TimelineController* conn;
 	ImageStore* imageStore;
+    UIImage* fallbackImage;
 }
 
 - (IBAction)refresh:(id)sender;

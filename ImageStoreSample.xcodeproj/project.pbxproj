@@ -157,12 +157,12 @@
 		78BEB2B00EB1AAFD00F02E3F /* ImageStore */ = {
 			isa = PBXGroup;
 			children = (
-				78BEB2B10EB1AAFD00F02E3F /* HttpClient.h */,
-				78BEB2B20EB1AAFD00F02E3F /* HttpClient.m */,
-				78BEB2B30EB1AAFD00F02E3F /* ImageDownloader.h */,
-				78BEB2B40EB1AAFD00F02E3F /* ImageDownloader.m */,
 				78BEB2B50EB1AAFD00F02E3F /* ImageStore.h */,
 				78BEB2B60EB1AAFD00F02E3F /* ImageStore.m */,
+				78BEB2B30EB1AAFD00F02E3F /* ImageDownloader.h */,
+				78BEB2B40EB1AAFD00F02E3F /* ImageDownloader.m */,
+				78BEB2B10EB1AAFD00F02E3F /* HttpClient.h */,
+				78BEB2B20EB1AAFD00F02E3F /* HttpClient.m */,
 				78BEB2B70EB1AAFD00F02E3F /* StringHelper.h */,
 				78BEB2B80EB1AAFD00F02E3F /* StringHelper.m */,
 			);

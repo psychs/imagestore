@@ -52,6 +52,9 @@
 
 - (void)httpClientSucceeded:(HttpClient*)sender response:(NSHTTPURLResponse*)response data:(NSData*)data
 {
+    if (![HttpClient isSuccessfulResponse:response] || ![[response MIMEType] hasPrefix:@"image/"]) {
+        return [self httpClientFailed:sender error:nil];
+    }
 	[image release];
 	image = [[UIImage alloc] initWithData:data];
 	

@@ -15,7 +15,8 @@
 
 - (Status*)initWithDictionary:(NSDictionary*)dic
 {
-	if (self = [super init]) {
+	self = [super init];
+	if (self) {
 		statusId = [[dic objectForKey:@"id"] longLongValue];
 		text = [[dic objectForKey:@"text"] retain];
 		

@@ -13,7 +13,8 @@
 
 - (User*)initWithDictionary:(NSDictionary*)dic
 {
-	if (self = [super init]) {
+	self = [super init];
+	if (self) {
 		userId = [[dic objectForKey:@"id"] longLongValue];
 		screenName = [[dic objectForKey:@"screen_name"] retain];
 		name = [[dic objectForKey:@"name"] retain];

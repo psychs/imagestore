@@ -11,7 +11,8 @@
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
-	if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+	self = [super initWithReuseIdentifier:reuseIdentifier];
+	if (self) {
 		self.accessoryType = UITableViewCellAccessoryNone;
 		self.selectionStyle = UITableViewCellSelectionStyleNone;
 	}

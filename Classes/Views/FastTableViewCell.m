@@ -22,7 +22,8 @@
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
-	if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
+	self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+	if (self) {
 		fastTableContentView = [[FastTableViewCellContentView alloc] initWithFrame:CGRectZero];
 		fastTableContentView.opaque = YES;
 		fastTableContentView.backgroundColor = [UIColor whiteColor];

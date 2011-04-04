@@ -73,4 +73,28 @@
 	[conns removeObjectForKey:sender.url];
 }
 
+- (void)cancelAllDownloads
+{
+    for (ImageDownloader *url in conns) {
+        [[conns objectForKey:url] cancel];
+    }
+    [conns removeAllObjects];
+}
+
+- (void)cancelDownloadFromUrl:(NSString *)url
+{
+    [[conns objectForKey:url] cancel];
+    [conns removeObjectForKey:url];
+}
+
+- (void)clearAllCaches
+{
+    [images removeAllObjects];
+}
+
+- (void)clearCacheForUrl:(NSString *)url
+{
+    [images removeObjectForKey:url];
+}
+
 @end

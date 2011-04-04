@@ -30,7 +30,10 @@
 {
 	[url release];
 	[image release];
+    
+    conn.delegate = nil;
 	[conn release];
+    
 	[super dealloc];
 }
 
@@ -72,6 +75,14 @@
 	if ([delegate respondsToSelector:@selector(imageDownloaderDidFail:error:)]) {
 		[delegate imageDownloaderDidFail:self error:error];
 	}
+}
+
+- (void)cancel
+{
+    conn.delegate = nil;
+    [conn cancel];
+    [conn release];
+    conn = nil;
 }
 
 @end

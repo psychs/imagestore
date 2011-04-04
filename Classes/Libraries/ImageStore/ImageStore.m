@@ -50,6 +50,30 @@
 	return image;
 }
 
+- (void)cancelAllConnections
+{
+	for (NSString* url in conns) {
+		[[conns objectForKey:url] cancel];
+	}
+	[conns removeAllObjects];
+}
+
+- (void)cancelConnectionForUrl:(NSString *)url
+{
+	[[conns objectForKey:url] cancel];
+	[conns removeObjectForKey:url];
+}
+
+- (void)clearAllImages
+{
+	[images removeAllObjects];
+}
+
+- (void)clearImageForUrl:(NSString *)url
+{
+	[images removeObjectForKey:url];
+}
+
 - (void)sendRequestForImage:(NSString*)url
 {
 	ImageDownloader* d = [ImageDownloader imageDownloaderWithDelegate:self url:url];
@@ -74,30 +98,6 @@
 {
 	[[sender retain] autorelease];
 	[conns removeObjectForKey:sender.url];
-}
-
-- (void)cancelAllDownloads
-{
-	for (NSString* url in conns) {
-		[[conns objectForKey:url] cancel];
-	}
-	[conns removeAllObjects];
-}
-
-- (void)cancelDownloadFromUrl:(NSString *)url
-{
-	[[conns objectForKey:url] cancel];
-	[conns removeObjectForKey:url];
-}
-
-- (void)clearAllCaches
-{
-	[images removeAllObjects];
-}
-
-- (void)clearCacheForUrl:(NSString *)url
-{
-	[images removeObjectForKey:url];
 }
 
 @end

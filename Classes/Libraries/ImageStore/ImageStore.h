@@ -17,10 +17,10 @@
 
 - (UIImage*)getImage:(NSString*)url;
 
-- (void)cancelAllDownloads;
-- (void)cancelDownloadFromUrl:(NSString*)url;
-- (void)clearAllCaches;
-- (void)clearCacheForUrl:(NSString*)url;
+- (void)cancelAllConnections;
+- (void)cancelConnectionForUrl:(NSString*)url;
+- (void)clearAllImages;
+- (void)clearImageForUrl:(NSString*)url;
 
 @end
 

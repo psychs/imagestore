@@ -19,9 +19,10 @@
 
 - (void)cancelAllConnections;
 - (void)cancelConnectionForUrl:(NSString*)url;
+
+- (void)setImage:(UIImage*)image forUrl:(NSString*)url;
 - (void)clearAllImages;
 - (void)clearImageForUrl:(NSString*)url;
-- (void)setImage:(UIImage*)image forUrl:(NSString*)url;
 
 @end
 

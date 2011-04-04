@@ -64,6 +64,11 @@
 	[conns removeObjectForKey:url];
 }
 
+- (void)setImage:(UIImage*)image forUrl:(NSString*)url
+{
+	[images setObject:image forKey:url];
+}
+
 - (void)clearAllImages
 {
 	[images removeAllObjects];
@@ -72,11 +77,6 @@
 - (void)clearImageForUrl:(NSString *)url
 {
 	[images removeObjectForKey:url];
-}
-
-- (void)setImage:(UIImage*)image forUrl:(NSString*)url
-{
-	[images setObject:image forKey:url];
 }
 
 - (void)sendRequestForImage:(NSString*)url

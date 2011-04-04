@@ -74,6 +74,11 @@
 	[images removeObjectForKey:url];
 }
 
+- (void)setImage:(UIImage*)image forUrl:(NSString*)url
+{
+	[images setObject:image forKey:url];
+}
+
 - (void)sendRequestForImage:(NSString*)url
 {
 	ImageDownloader* d = [ImageDownloader imageDownloaderWithDelegate:self url:url];

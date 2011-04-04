@@ -34,6 +34,9 @@
 - (void)dealloc
 {
 	[images release];
+	for (NSString* url in conns) {
+		[[conns objectForKey:url] cancel];
+	}
 	[conns release];
 	[super dealloc];
 }
@@ -75,7 +78,7 @@
 
 - (void)cancelAllDownloads
 {
-	for (ImageDownloader *url in conns) {
+	for (NSString* url in conns) {
 		[[conns objectForKey:url] cancel];
 	}
 	[conns removeAllObjects];

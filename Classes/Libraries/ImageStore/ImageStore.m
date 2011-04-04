@@ -70,6 +70,19 @@
 - (void)imageDownloaderDidFail:(ImageDownloader*)sender error:(NSError*)error
 {
 	[[sender retain] autorelease];
+    NSString *url = sender.url;
+    
+    UIImage *image = nil;
+    if ([delegate respondsToSelector:@selector(imageStoreDidFailNewImage:url:fallbackImage:)]) {
+        [delegate imageStoreDidFailNewImage:self url:url fallbackImage:&image];
+        if (image) {
+            [images setObject:image forKey:url];
+            if ([delegate respondsToSelector:@selector(imageStoreDidGetNewImage:url:)]) {
+                [delegate imageStoreDidGetNewImage:self url:url];
+            }
+        }
+    }
+    
 	[conns removeObjectForKey:sender.url];
 }
 

@@ -24,4 +24,5 @@
 
 @interface NSObject (ImageStoreDelegate)
 - (void)imageStoreDidGetNewImage:(ImageStore*)sender url:(NSString*)url;
+- (void)imageStoreDidFailNewImage:(ImageStore *)sender url:(NSString *)url fallbackImage:(UIImage**)anImage;
 @end

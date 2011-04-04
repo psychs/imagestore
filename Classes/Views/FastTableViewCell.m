@@ -22,14 +22,14 @@
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
-    if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
+	if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
 		fastTableContentView = [[FastTableViewCellContentView alloc] initWithFrame:CGRectZero];
 		fastTableContentView.opaque = YES;
 		fastTableContentView.backgroundColor = [UIColor whiteColor];
 		[self addSubview:fastTableContentView];
 		[fastTableContentView release];
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void)dealloc

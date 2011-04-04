@@ -74,26 +74,26 @@
 
 - (void)cancelAllDownloads
 {
-    for (ImageDownloader *url in conns) {
-        [[conns objectForKey:url] cancel];
-    }
-    [conns removeAllObjects];
+	for (ImageDownloader *url in conns) {
+		[[conns objectForKey:url] cancel];
+	}
+	[conns removeAllObjects];
 }
 
 - (void)cancelDownloadFromUrl:(NSString *)url
 {
-    [[conns objectForKey:url] cancel];
-    [conns removeObjectForKey:url];
+	[[conns objectForKey:url] cancel];
+	[conns removeObjectForKey:url];
 }
 
 - (void)clearAllCaches
 {
-    [images removeAllObjects];
+	[images removeAllObjects];
 }
 
 - (void)clearCacheForUrl:(NSString *)url
 {
-    [images removeObjectForKey:url];
+	[images removeObjectForKey:url];
 }
 
 @end

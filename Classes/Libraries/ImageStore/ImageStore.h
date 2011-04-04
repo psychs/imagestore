@@ -27,4 +27,5 @@
 
 @interface NSObject (ImageStoreDelegate)
 - (void)imageStoreDidGetNewImage:(ImageStore*)sender url:(NSString*)url;
+- (void)imageStoreDidFailDownload:(ImageStore*)sender error:(NSError*)error statusCode:(int)statusCode;
 @end

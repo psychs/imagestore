@@ -24,5 +24,5 @@
 
 @interface NSObject (ImageDownloaderDelegate)
 - (void)imageDownloaderDidSucceed:(ImageDownloader*)sender;
-- (void)imageDownloaderDidFail:(ImageDownloader*)sender error:(NSError*)error;
+- (void)imageDownloaderDidFail:(ImageDownloader*)sender error:(NSError*)error statusCode:(int)statusCode;
 @end

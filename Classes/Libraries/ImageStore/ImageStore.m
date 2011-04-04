@@ -83,10 +83,14 @@
 - (void)imageDownloaderDidSucceed:(ImageDownloader*)sender
 {
 	[[sender retain] autorelease];
-	NSString* url = sender.url;
 	
+	NSString* url = sender.url;
 	UIImage* image = sender.image;
-	if (image) [images setObject:image forKey:url];
+	
+	if (image) {
+		[images setObject:image forKey:url];
+	}
+	
 	[conns removeObjectForKey:url];
 	
 	if ([delegate respondsToSelector:@selector(imageStoreDidGetNewImage:url:)]) {
@@ -94,10 +98,14 @@
 	}
 }
 
-- (void)imageDownloaderDidFail:(ImageDownloader*)sender error:(NSError*)error
+- (void)imageDownloaderDidFail:(ImageDownloader*)sender error:(NSError*)error statusCode:(int)statusCode
 {
 	[[sender retain] autorelease];
 	[conns removeObjectForKey:sender.url];
+	
+	if ([delegate respondsToSelector:@selector(imageStoreDidFailDownload:error:statusCode:)]) {
+		[delegate imageStoreDidFailDownload:self error:error statusCode:statusCode];
+	}
 }
 
 @end

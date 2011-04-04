@@ -45,9 +45,12 @@
 
 - (void)start:(NSString*)anUrl
 {
-	[url autorelease];
-	[conn autorelease];
+	[self cancel];
 	
+	[image release];
+	image = nil;
+
+	[url autorelease];
 	url = [anUrl retain];
 	
 	conn = [[HttpClient alloc] initWithDelegate:self];
@@ -63,14 +66,21 @@
 
 - (void)httpClientSucceeded:(HttpClient*)sender response:(NSHTTPURLResponse*)response data:(NSData*)data
 {
-	[image release];
-	image = [[UIImage alloc] initWithData:data];
-	
 	[conn autorelease];
 	conn = nil;
 	
-	if ([delegate respondsToSelector:@selector(imageDownloaderDidSucceed:)]) {
-		[delegate imageDownloaderDidSucceed:self];
+	int statusCode = [response statusCode];
+	if (statusCode == 200 && data.length) {
+		image = [[UIImage alloc] initWithData:data];
+		
+		if ([delegate respondsToSelector:@selector(imageDownloaderDidSucceed:)]) {
+			[delegate imageDownloaderDidSucceed:self];
+		}
+	}
+	else {
+		if ([delegate respondsToSelector:@selector(imageDownloaderDidFail:error:statusCode:)]) {
+			[delegate imageDownloaderDidFail:self error:nil statusCode:statusCode];
+		}
 	}
 }
 
@@ -79,8 +89,8 @@
 	[conn autorelease];
 	conn = nil;
 	
-	if ([delegate respondsToSelector:@selector(imageDownloaderDidFail:error:)]) {
-		[delegate imageDownloaderDidFail:self error:error];
+	if ([delegate respondsToSelector:@selector(imageDownloaderDidFail:error:statusCode:)]) {
+		[delegate imageDownloaderDidFail:self error:error statusCode:0];
 	}
 }
 

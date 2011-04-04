@@ -29,17 +29,25 @@
 {
 	[url release];
 	[image release];
-	
 	conn.delegate = nil;
+	[conn cancel];
 	[conn release];
-	
 	[super dealloc];
+}
+
+- (void)cancel
+{
+	conn.delegate = nil;
+	[conn cancel];
+	[conn release];
+	conn = nil;
 }
 
 - (void)start:(NSString*)anUrl
 {
 	[url autorelease];
 	[conn autorelease];
+	
 	url = [anUrl retain];
 	
 	conn = [[HttpClient alloc] initWithDelegate:self];
@@ -74,14 +82,6 @@
 	if ([delegate respondsToSelector:@selector(imageDownloaderDidFail:error:)]) {
 		[delegate imageDownloaderDidFail:self error:error];
 	}
-}
-
-- (void)cancel
-{
-	conn.delegate = nil;
-	[conn cancel];
-	[conn release];
-	conn = nil;
 }
 
 @end

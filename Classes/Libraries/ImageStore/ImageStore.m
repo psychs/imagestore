@@ -43,6 +43,8 @@
 
 - (UIImage*)getImage:(NSString*)url
 {
+	if (!url.length) return nil;
+	
 	UIImage* image = [images objectForKey:url];
 	if (!image && ![conns objectForKey:url]) {
 		[self sendRequestForImage:url];

@@ -8,9 +8,9 @@
 
 @interface TimelineController : NSObject
 {
-	id delegate;
-	NSMutableArray* statuses;
-	TimelineDownloader* conn;
+    id delegate;
+    NSMutableArray* statuses;
+    TimelineDownloader* conn;
 }
 
 @property (nonatomic, assign) IBOutlet id delegate;

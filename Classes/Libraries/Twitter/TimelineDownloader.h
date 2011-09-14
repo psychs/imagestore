@@ -7,8 +7,8 @@
 
 @interface TimelineDownloader : NSObject
 {
-	id delegate;
-	HttpClient* conn;
+    id delegate;
+    HttpClient* conn;
 }
 
 @property (nonatomic, readonly) BOOL isActive;

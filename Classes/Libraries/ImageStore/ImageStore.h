@@ -6,9 +6,9 @@
 
 @interface ImageStore : NSObject
 {
-	id delegate;
-	NSMutableDictionary* images;
-	NSMutableDictionary* conns;
+    id delegate;
+    NSMutableDictionary* images;
+    NSMutableDictionary* conns;
 }
 
 @property (nonatomic, assign) id delegate;

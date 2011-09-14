@@ -13,27 +13,27 @@
 
 - (User*)initWithDictionary:(NSDictionary*)dic
 {
-	self = [super init];
-	if (self) {
-		userId = [[dic objectForKey:@"id"] longLongValue];
-		screenName = [[dic objectForKey:@"screen_name"] retain];
-		name = [[dic objectForKey:@"name"] retain];
-		profileImageUrl = [[dic objectForKey:@"profile_image_url"] retain];
-	}
-	return self;
+    self = [super init];
+    if (self) {
+        userId = [[dic objectForKey:@"id"] longLongValue];
+        screenName = [[dic objectForKey:@"screen_name"] retain];
+        name = [[dic objectForKey:@"name"] retain];
+        profileImageUrl = [[dic objectForKey:@"profile_image_url"] retain];
+    }
+    return self;
 }
 
 - (void)dealloc
 {
-	[screenName release];
-	[name release];
-	[profileImageUrl release];
-	[super dealloc];
+    [screenName release];
+    [name release];
+    [profileImageUrl release];
+    [super dealloc];
 }
 
 + (User*)userWithDictionary:(NSDictionary*)dic
 {
-	return [[[User alloc] initWithDictionary:dic] autorelease];
+    return [[[User alloc] initWithDictionary:dic] autorelease];
 }
 
 @end

@@ -8,8 +8,8 @@
 
 @interface RootViewController : UITableViewController
 {
-	TimelineController* conn;
-	ImageStore* imageStore;
+    TimelineController* conn;
+    ImageStore* imageStore;
 }
 
 - (IBAction)refresh:(id)sender;

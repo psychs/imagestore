@@ -6,12 +6,12 @@
 
 @interface HttpClient : NSObject
 {
-	id delegate;
-	NSString* userAgent;
-	
-	NSURLConnection* conn;
-	NSHTTPURLResponse* response;
-	NSMutableData* buf;
+    id delegate;
+    NSString* userAgent;
+    
+    NSURLConnection* conn;
+    NSHTTPURLResponse* response;
+    NSMutableData* buf;
 }
 
 @property (nonatomic, assign) id delegate;

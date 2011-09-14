@@ -6,10 +6,10 @@
 
 @interface User : NSObject
 {
-	long long userId;
-	NSString* screenName;
-	NSString* name;
-	NSString* profileImageUrl;
+    long long userId;
+    NSString* screenName;
+    NSString* name;
+    NSString* profileImageUrl;
 }
 
 @property (nonatomic, readonly) long long userId;

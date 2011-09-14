@@ -7,10 +7,10 @@
 
 @interface ImageDownloader : NSObject
 {
-	id delegate;
-	NSString* url;
-	UIImage* image;
-	HttpClient* conn;
+    id delegate;
+    NSString* url;
+    UIImage* image;
+    HttpClient* conn;
 }
 
 @property (nonatomic, readonly) UIImage* image;

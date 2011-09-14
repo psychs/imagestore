@@ -6,7 +6,7 @@
 
 @interface FastTableViewCell : UITableViewCell
 {
-	UIView* fastTableContentView;
+    UIView* fastTableContentView;
 }
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;

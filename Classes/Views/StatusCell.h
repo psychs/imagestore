@@ -9,8 +9,8 @@
 
 @interface StatusCell : FastTableViewCell
 {
-	Status* status;
-	ImageStore* imageStore;
+    Status* status;
+    ImageStore* imageStore;
 }
 
 @property (nonatomic, retain) Status* status;

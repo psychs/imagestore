@@ -7,9 +7,9 @@
 
 @interface AppDelegate : NSObject <UIApplicationDelegate>
 {
-	UIWindow* window;
-	UINavigationController* navigationController;
-	RootViewController* root;
+    UIWindow* window;
+    UINavigationController* navigationController;
+    RootViewController* root;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow* window;
